@@ -192,7 +192,7 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
-  .reset {
-    grid-column: 1 / 3;
+  .reset-btn {
+    grid-column: span 2;
   }
 }
