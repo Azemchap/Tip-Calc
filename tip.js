@@ -4,7 +4,7 @@ const billInput = document.getElementById('bill-input')
 const peopleInput = document.getElementById('people-input')
 const tipInput = document.getElementById('tip-custom')
 const tipBtns = document.querySelectorAll('.tip')
-const pepleError = document.querySelector('.person-wrapper h4')
+const peopleError = document.querySelector('.person-wrapper h4')
 const billError = document.querySelector('.bill-wrapper h4')
 
 //Reset
@@ -18,7 +18,7 @@ const totalBill = document.querySelector('.bill-total')
 
 
 // Test
-// pepleError.classList.add('block')
+// peopleError.classList.add('block')
 // billInput.addEventListener('change', () => {
 //     let bill = billInput.value
 //     console.log(bill)
@@ -46,7 +46,7 @@ let billValue = 0.00
 let tipValue = 0.05 //default value 5% btn is active
 let peopleValue = 1
 
-// Function to validate Floats and Intergers 
+// Function to validate Floats and Integers 
 function validateFloat(s) {
     var rgx = /^[0-9]*\.?[0-9]*$/
     return s.match(rgx)
@@ -61,7 +61,7 @@ function validateInt(s) {
 
 
 
-// Function to get Bill Amoount
+// Function to get Bill Amount
 function setBillValue() {
 
 
@@ -71,6 +71,8 @@ function setBillValue() {
 
     if (billValue <= 0) {
         billError.classList.add('error')
+        // reset all results outputs
+        resetAllResults()
         // setTimeout(function () {
         //     billError.classList.remove('error')
         // }, 3000)
@@ -147,13 +149,15 @@ function setPeopleValue() {
     // console.log(typeof peopleValue)
 
     if (peopleValue <= 0) {
-        pepleError.classList.add('error')
+        peopleError.classList.add('error')
+        // reset all results outputs
+        resetAllResults()
         // setTimeout(function () {
-        //     pepleError.classList.remove('error')
+        //     peopleError.classList.remove('error')
         // }, 3000)
 
     } else {
-        pepleError.classList.remove('error')
+        peopleError.classList.remove('error')
         calculateTip()
     }
 
@@ -161,7 +165,7 @@ function setPeopleValue() {
 
 
 function calculateTip() {
-    // if peopleValue and billValue are greater than 1 and 0 respectively
+    // if (peopleValue > 1) and (billValue > 0)
     if (peopleValue >= 1 && billValue >= 0) {
 
         let tipAmount = billValue * tipValue / peopleValue
@@ -181,15 +185,31 @@ function calculateTip() {
     }
 }
 
-
-function reset() {
+// reset all input fills
+function resetAllInputs() {
     // resetBillValue()
     billInput.value = ''
     // resetTipValue()
     tipInput.value = ''
     // resetPeopleValue()
     peopleInput.value = ''
+}
 
+// reset all results fills
+function resetAllResults() {
+    tip.innerText = '0.00'
+    totalTip.innerText = '0.00'
+    billPerPerson.innerText = '0.00'
+    totalBill.innerText = '0.00'
+}
+
+
+function reset() {
+    // reset all input fills
+    resetAllInputs()
+
+    // reset all results outputs
+    resetAllResults()
 
     // clear active state from tipInput and all % btns
     tipInput.classList.remove('active')
@@ -198,13 +218,6 @@ function reset() {
     })
     // add active state to default 5% btn
     tipBtns[0].classList.add('active')
-
-
-    // reset all results outputs to zero (0.00) 
-    tip.innerText = '0.00'
-    totalTip.innerText = '0.00'
-    billPerPerson.innerText = '0.00'
-    totalBill.innerText = '0.00'
 }
 
 
