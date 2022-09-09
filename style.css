@@ -57,6 +57,7 @@ button {
   /* background-color: var(--bg-col); */
   border-radius: 0.4rem;
   cursor: pointer;
+  margin: 0.4rem;
 }
 
 .app {
@@ -129,6 +130,10 @@ h2 {
   justify-content: space-between;
   background-color: var(--bg-col);
   border-radius: 0.4rem;
+}
+
+.tip-section div {
+  margin: 0.4rem;
 }
 
 .tip-section div p {
