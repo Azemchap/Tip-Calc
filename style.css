@@ -186,8 +186,8 @@ h2 {
   .tip-section {
     border-top: 0.2rem solid var(--bg-col);
     padding-top: 2rem;
-    padding-left: 0;
-    border-left: 0;
+    padding-left: 0rem;
+    border-left: 0rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
