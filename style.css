@@ -188,6 +188,10 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .btn {
+    margin: 1rem;
+  }
+
   .tip-section {
     border-top: 0.2rem solid var(--bg-col);
     padding-top: 2rem;
@@ -196,6 +200,10 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+  }
+
+  .tip-section div {
+    margin: 1rem;
   }
   .reset-btn {
     grid-column: span 2;
